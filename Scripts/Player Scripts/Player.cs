@@ -23,11 +23,11 @@ namespace PraktikumProjekt
             _position = position;
 
             
-            _animUp = new SpriteAnimation(Game1._playerTextures[0], 4, 4);
-            _animRight = new SpriteAnimation(Game1._playerTextures[2], 4, 4);
-            _animDown = new SpriteAnimation(Game1._playerTextures[4], 4, 4);
-            _animLeft = new SpriteAnimation(Game1._playerTextures[6], 4, 4);
-            _idleAnimation = new SpriteAnimation(Game1._playerTextures[8], 4, 4);
+            _animUp = new SpriteAnimation(Game1._playerTextures[0], 4, 8);
+            _animRight = new SpriteAnimation(Game1._playerTextures[2], 4, 8);
+            _animDown = new SpriteAnimation(Game1._playerTextures[4], 4, 8);
+            _animLeft = new SpriteAnimation(Game1._playerTextures[6], 4, 8);
+            _idleAnimation = new SpriteAnimation(Game1._playerTextures[8], 12, 4);
             _currentAnimation = _idleAnimation;
         }
         
@@ -104,10 +104,11 @@ namespace PraktikumProjekt
 
                 }
             }
+            else { _currentAnimation = _idleAnimation;  }
 
             _currentAnimation.Position = new Vector2(_position.X - 48, Position.Y - 48);
-            if (_isMoving) {_currentAnimation.Update(gameTime); }
-            else{_currentAnimation.setFrame(1);}
+            _currentAnimation.Update(gameTime);
+            
 
             //Shoot Logic
             if (kState.IsKeyDown(Keys.Up) && kState.IsKeyDown(Keys.Right))

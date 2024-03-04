@@ -4,17 +4,16 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/background.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Background/bg.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Background/dungeonBackground.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/ball.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/HealthBar/healthbar_1.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/HealthBar/healthbar_2.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Pickups/item_01.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/player.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/walkDown.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/walkLeft.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/walkRight.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/walkUp.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerIdle.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerWalkDown.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerWalkLeft.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerWalkRight.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerWalkUp.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Portals/portal-Sheet.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeleton_01.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeleton_walkDown.png</File>
@@ -24,7 +23,6 @@
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/SkellyHead/skull.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

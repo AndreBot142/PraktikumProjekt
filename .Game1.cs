@@ -26,7 +26,7 @@ namespace PraktikumProjekt
         public static Texture2D[] _projectileTextures = new Texture2D[9];
         public static Texture2D[] _healthBarTextures = new Texture2D[2];
 
-        static Texture2D _caveBackground;
+        public static Texture2D _caveBackground;
         Player _player;
 
 
@@ -65,11 +65,11 @@ namespace PraktikumProjekt
             _renderTarget = new RenderTarget2D(GraphicsDevice, 1920, 1080);
             _renderScale = new Rectangle(0, 0, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 
-            _playerTextures[0] = Content.Load<Texture2D>("Player/walkUp");
-            _playerTextures[2] = Content.Load<Texture2D>("Player/walkRight");
-            _playerTextures[4] = Content.Load<Texture2D>("Player/walkDown");
-            _playerTextures[6] = Content.Load<Texture2D>("Player/walkLeft");
-            _playerTextures[8] = Content.Load<Texture2D>("Player/walkDown");
+            _playerTextures[0] = Content.Load<Texture2D>("Player/playerWalkUp");
+            _playerTextures[2] = Content.Load<Texture2D>("Player/playerWalkRight");
+            _playerTextures[4] = Content.Load<Texture2D>("Player/playerWalkDown");
+            _playerTextures[6] = Content.Load<Texture2D>("Player/playerWalkLeft");
+            _playerTextures[8] = Content.Load<Texture2D>("Player/playerIdle");
 
             _skellyTextures[0] = Content.Load<Texture2D>("Skelly/skeleton_walkUP");
             _skellyTextures[2] = Content.Load<Texture2D>("Skelly/skeleton_walkRight");
@@ -85,13 +85,13 @@ namespace PraktikumProjekt
 
             _lootTextures[8] = Content.Load<Texture2D>("Pickups/item_01");
 
-            _caveBackground = Content.Load<Texture2D>("Background/bg");
+            _caveBackground = Content.Load<Texture2D>("Background/dungeonBackground");
 
             _healthBarTextures[0] = Content.Load<Texture2D>("HealthBar/healthbar_1");
             _healthBarTextures[1] = Content.Load<Texture2D>("HealthBar/healthbar_2");
 
             _player = new Player(Vector2.Zero);
-            _currentScene = Scenes.CurrentBackground;
+            _currentScene = new Scenes();
         }
 
         protected override void Update(GameTime gameTime)
