@@ -20,12 +20,11 @@ namespace PraktikumProjekt
             _position = position;
             _maxHealth = 2;
 
-
-            _animUp = new SpriteAnimation(Game1._skellyTextures[0], 4, 4);
-            _animRight = new SpriteAnimation(Game1._skellyTextures[2], 4, 4);
-            _animDown = new SpriteAnimation(Game1._skellyTextures[4], 4, 4);
-            _animLeft = new SpriteAnimation(Game1._skellyTextures[6], 4, 4);
-            _idleAnimation = new SpriteAnimation(Game1._skellyTextures[8], 4, 4);
+            _animUp = new SpriteAnimation(Game1._skellyTextures[0], 4, 8);
+            _animRight = new SpriteAnimation(Game1._skellyTextures[2], 4, 8);
+            _animDown = new SpriteAnimation(Game1._skellyTextures[4], 4, 8);
+            _animLeft = new SpriteAnimation(Game1._skellyTextures[6], 4, 8);
+            _idleAnimation = new SpriteAnimation(Game1._skellyTextures[8], 37, 8);
             _currentAnimation = _idleAnimation;
             _currentAnimation.setFrame(1);
         }
@@ -42,7 +41,7 @@ namespace PraktikumProjekt
             _moveDirection.Normalize();
 
             //Causes Sprite Animation to face the dominant direction it needs go to
-            int _currentIndex = _currentAnimation.Frameindex; 
+
             _angleDegrees = GetAngleDegree(_moveDirection);
             if (_angleDegrees > -135 && _angleDegrees <= -45)
             {
@@ -61,17 +60,16 @@ namespace PraktikumProjekt
                 _currentAnimation = _animLeft;
             }
 
-            _currentAnimation.setFrame(_currentIndex);
 
             //If Player isnt dead, and it isnt on sleep, it will move towards Player
             if (!isDead && _sleepTime < 0)
             {
                 _position += _moveDirection * _speed * _dt;
-                _currentAnimation.Update(gameTime);
             }
             //Otherwise it will move in place
             else { _currentAnimation = _idleAnimation; }
 
+            _currentAnimation.Update(gameTime);
             //Centering the Sprite to its Position
             _currentAnimation.Position = new Vector2(_position.X - 48, _position.Y - 48); //TO DO Splice Sprites Automatically
 

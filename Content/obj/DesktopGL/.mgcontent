@@ -5,7 +5,12 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Background/dungeonBackground.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Background/MainMenuBG.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Background/PauseMenu.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Background/StartScreen.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/ball.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Cursors/cursor.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Fonts/galleryFont.spritefont</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/HealthBar/healthbar_1.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/HealthBar/healthbar_2.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Pickups/item_01.png</File>
@@ -15,14 +20,19 @@
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerWalkRight.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerWalkUp.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Portals/portal-Sheet.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeleton_01.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeleton_walkDown.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeleton_walkLeft.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeleton_walkRight.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeleton_walkUP.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeletonIdle.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeletonWalkDown.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeletonWalkLeft.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeletonWalkRight.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeletonWalkUp.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/SkellyHead/skull.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

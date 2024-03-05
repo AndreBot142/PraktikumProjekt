@@ -13,7 +13,7 @@ namespace PraktikumProjekt.Scripts.Loots
             _speed = 1000;
             _position = position;
 
-            _currentAnimation = new SpriteAnimation(Game1._lootTextures[8], 4, 4);
+            _currentAnimation = new SpriteAnimation(Game1._lootTextures[8], 8, 4);
         }
 
         public void UpdateLoot(GameTime gameTime)

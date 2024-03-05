@@ -25,7 +25,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Background\" />
+    <Folder Include="Content\HUD\" />
+    <Folder Include="Content\Pickups\" />
     <Folder Include="Content\Player\" />
+    <Folder Include="Content\Skelly\" />
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />
