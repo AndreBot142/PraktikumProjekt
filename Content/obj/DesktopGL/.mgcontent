@@ -13,13 +13,17 @@
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Fonts/galleryFont.spritefont</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/HealthBar/healthbar_1.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/HealthBar/healthbar_2.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/HUD/Hearts/heartDamaged.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/HUD/Hearts/heartEmpty.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/HUD/Hearts/heartFull.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/HUD/Hearts/heartHalf.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Pickups/item_01.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerIdle.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerWalkDown.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerWalkLeft.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerWalkRight.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Player/playerWalkUp.png</File>
-    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Portals/portal-Sheet.png</File>
+    <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Portals/portal.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeletonIdle.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeletonWalkDown.png</File>
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/Skelly/skeletonWalkLeft.png</File>
@@ -28,6 +32,10 @@
     <File>C:/Users/Games/source/repos/PraktikumProjekt/Content/SkellyHead/skull.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

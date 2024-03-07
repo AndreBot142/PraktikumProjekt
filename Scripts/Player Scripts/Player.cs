@@ -32,7 +32,6 @@ namespace PraktikumProjekt
         }
         
         private double _multishotTimer = 0;             public double MultishotTimer { get { return _multishotTimer; } set { _multishotTimer = value; } }
-        private bool _multiShot = false;
         private double _shootCooldown = 0.5D;
         private double _time = 0;
         private Direction _shootDirection;
@@ -41,9 +40,6 @@ namespace PraktikumProjekt
         {
             KeyboardState kState = Keyboard.GetState();
             
-
-
-
             float _deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds; 
             _isMoving = false;
             _isShooting = false;
@@ -166,7 +162,10 @@ namespace PraktikumProjekt
                 _time = _shootCooldown;
 
             }
+            if(_multishotTimer > 0) 
+            {
             _multishotTimer -= gameTime.ElapsedGameTime.TotalSeconds;
+            }
             _time -= gameTime.ElapsedGameTime.TotalSeconds;
 
             _collider = new Rectangle((int)_position.X, (int)_position.Y, _width, _length);

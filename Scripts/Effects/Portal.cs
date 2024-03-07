@@ -11,7 +11,7 @@ namespace PraktikumProjekt.Scripts.Effects
         {
             _position = position;
 
-            _currentAnimation = new SpriteAnimation(Game1._portalTextures[8], 15, 10);
+            _currentAnimation = new SpriteAnimation(Game1._portalTextures[8], 16, 7);
             _currentAnimation.IsLooping = false;
         }   
 

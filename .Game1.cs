@@ -8,12 +8,15 @@ using PraktikumProjekt.Scripts.Projectiles;
 using PraktikumProjekt.Scripts.Loots;
 using PraktikumProjekt.Scripts.Scenes;
 using PraktikumProjekt.Scripts.MainMenu;
+using PraktikumProjekt.Scripts;
+
 
 namespace PraktikumProjekt
 {
     enum Direction { Up, UpRight, Right, DownRight, Down, DownLeft, Left, UpLeft}
     public class Game1 : Game
     {
+ 
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
         RenderTarget2D _renderTarget;
@@ -24,6 +27,7 @@ namespace PraktikumProjekt
 
         public static Texture2D cursor;
 
+        public static Texture2D[] _heartTextures = new Texture2D[4];
         public static Texture2D[] _playerTextures = new Texture2D[9];
         public static Texture2D[] _skellyTextures = new Texture2D[9];
         public static Texture2D[] _skellyHeadTextures = new Texture2D[9];
@@ -41,6 +45,7 @@ namespace PraktikumProjekt
         Player _player;
         MainMenu _mainMenu;
         LoadingScreen _loadingScreen;
+        HUD _hud;
 
         Random _random = new Random();
         Camera _camera;
@@ -63,15 +68,17 @@ namespace PraktikumProjekt
 
         protected override void Initialize()
         {
-            _camera = new Camera(_graphics.GraphicsDevice);
-            _camera.Position = new Vector2(0, 0);
-            _camera.ViewportOffset.Position = new Vector2(0, 0);
             bool _defaultResolution = true; 
             if (_defaultResolution) 
             {
-                _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width; 
+                _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
                 _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             }
+            _camera = new Camera(_graphics.GraphicsDevice);
+            _camera.Position = new Vector2(0, 0);
+            _camera.ViewportOffset.Position = new Vector2(0, 0);
+
+
             _graphics.ApplyChanges();
             base.Initialize();
             IsMouseVisible = false;
@@ -83,7 +90,7 @@ namespace PraktikumProjekt
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             
             _renderTarget = new RenderTarget2D(GraphicsDevice, renderTargetX, renderTargetY);
-            _renderScale = new Rectangle(0, 0, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+            _renderScale = new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
 
             _mainMenuBackground = Content.Load<Texture2D>("Background/MainMenuBG");
             _loadingScreenBG = Content.Load<Texture2D>("Background/StartScreen");
@@ -101,13 +108,23 @@ namespace PraktikumProjekt
             _skellyTextures[6] = Content.Load<Texture2D>("Skelly/skeletonWalkLeft");
             _skellyTextures[8] = Content.Load<Texture2D>("Skelly/skeletonIdle");
 
+            _heartTextures[0] = Content.Load<Texture2D>("HUD/Hearts/heartEmpty");
+            _heartTextures[1] = Content.Load<Texture2D>("HUD/Hearts/heartHalf");
+            _heartTextures[2] = Content.Load<Texture2D>("HUD/Hearts/heartFull");
+            _heartTextures[3] = Content.Load<Texture2D>("HUD/Hearts/heartDamaged");
+
+
+
+
+
+
             cursor = Content.Load<Texture2D>("Cursors/cursor");
 
             _projectileTextures[8] = Content.Load<Texture2D>("ball");
 
             _skellyHeadTextures[8] = Content.Load<Texture2D>("SkellyHead/skull");
 
-            _portalTextures[8] = Content.Load<Texture2D>("Portals/portal-Sheet");
+            _portalTextures[8] = Content.Load<Texture2D>("Portals/portal");
 
             _lootTextures[8] = Content.Load<Texture2D>("Pickups/item_01");
 
@@ -122,6 +139,7 @@ namespace PraktikumProjekt
             _mainMenu = new MainMenu();
             _loadingScreen = new LoadingScreen();
             _currentScene = new Scenes();
+            _hud = new HUD(renderTargetX, renderTargetY);
         }
 
         protected override void Update(GameTime gameTime)
@@ -161,7 +179,7 @@ namespace PraktikumProjekt
 
             if (_gameState == "NewGame")
             {
-                _player.Position = new Vector2(renderTargetX / 2, renderTargetY /2);
+                _player.Position = new Vector2(0,0);
                 _player.IsDead = false; 
                 Projectile.Projectiles.Clear();  //when 2 object are collided, the objects will be removed
                 SkellyHead.SkellyHeads.Clear();
@@ -169,6 +187,8 @@ namespace PraktikumProjekt
                 Loot.Loots.Clear();
                 Portal.Portals.Clear();
                 _gameState = "Running";
+                _hud.CurrentHealth = 3;
+                _hud.TimeCounter = 0;
             }
             
             if( _gameState == "inMainMenu")
@@ -192,8 +212,12 @@ namespace PraktikumProjekt
 
                 //Camera Position Update
                 _camera.Position = new Vector2(_player.Position.X, _player.Position.Y); //camera follows player
-                _camera.ViewportOffset.Position = new Vector2(_player.Position.X, _player.Position.Y);
                 _camera.Update(gameTime);
+                _camera.ViewportOffset.Position = new Vector2((0f - renderTargetX) * 0.5f, (0f - renderTargetY) * 0.5f);
+
+                _hud.Update(gameTime, _camera.Position, _player.IsDead);
+
+
 
                 //Enemies Movement Updates
                 foreach (Skelly skelly in Skelly.Skellies)
@@ -273,7 +297,12 @@ namespace PraktikumProjekt
                     {
 
                         skellyhead.IsCollided = true;
-                        _player.IsDead = true;
+                        _hud.CurrentHealth--;
+                        _hud.StartEmpty++;
+                        if(_hud.CurrentHealth < 1)
+                        {
+                            _player.IsDead = true;
+                        }
                     }
                 }
                 foreach (Skelly skelly in Skelly.Skellies)
@@ -283,7 +312,12 @@ namespace PraktikumProjekt
                     if (_player.Collider.Intersects(skelly.Collider))
                     {
                         skelly.IsCollided = true;
-                        _player.IsDead = true;
+                        _hud.CurrentHealth--;
+                        _hud.StartEmpty++;
+                        if (_hud.CurrentHealth < 1)
+                        {
+                            _player.IsDead = true;
+                        }
                     }
                 }
 
@@ -294,7 +328,7 @@ namespace PraktikumProjekt
                     if (Vector2.Distance(loot.Position, _player.Position) < sum)
                     {
                         loot.IsCollided = true;
-                        _player.MultishotTimer = 10;
+                        _player.MultishotTimer += 5;
                     }
                 }
 
@@ -316,12 +350,23 @@ namespace PraktikumProjekt
             GraphicsDevice.SetRenderTarget(_renderTarget);
             GraphicsDevice.Clear(Color.Black);
 
-            _spriteBatch.Begin(this._camera); //screen follows camer
+            _spriteBatch.Begin(this._camera); //screen follows camera
 
+
+            if (_gameState == "inMainMenu")
+            {
+                _mainMenu.Draw(_spriteBatch);
+
+            }
+            if(_gameState == "Loading")
+            {
+                _loadingScreen.Draw(_spriteBatch);
+            }
 
             if (_gameState == "Running" || _gameState == "Paused")
             {
                 _currentScene.Draw(_spriteBatch);
+
                 foreach (Projectile proj in Projectile.Projectiles)
                 {
                     _spriteBatch.Draw(_projectileTextures[8], new Vector2(proj.Position.X - 48, proj.Position.Y - 48), Color.White);
@@ -369,29 +414,20 @@ namespace PraktikumProjekt
 
                 if(_player.IsDead)
                 {
-                    _spriteBatch.DrawString(_spriteFont, "GAME OVER", new Vector2(_camera.Position.X - 200, _camera.Position.Y - 150), Color.White);
+                    _spriteBatch.DrawString(_spriteFont, "GAME OVER", new Vector2(_camera.Position.X - 200, _camera.Position.Y - 150), Color.Red);
                 }
                 if (_player.IsDead)
                 {
-                    _spriteBatch.DrawString(_spriteFont, "Try again? (R)", new Vector2(_camera.Position.X - 200, _camera.Position.Y - 100), Color.White);
+                    _spriteBatch.DrawString(_spriteFont, "Try again? (R)", new Vector2(_camera.Position.X - 200, _camera.Position.Y - 80), Color.White);
                 }
+
+                _hud.Draw(_spriteBatch);
 
             }
             if(_gameState == "Paused")
             {
-                _spriteBatch.Draw(_pauseScreen, new Vector2(_camera.Position.X - 960, _camera.Position.Y - 540), Color.White);
+                _spriteBatch.Draw(_pauseScreen, new Vector2(_camera.Position.X - renderTargetX/2, _camera.Position.Y - renderTargetY/ 2), Color.White);
             }
-            if (_gameState == "inMainMenu")
-            {
-                _mainMenu.Draw(_spriteBatch);
-
-
-            }
-            if(_gameState == "Loading")
-            {
-                _loadingScreen.Draw(_spriteBatch);
-            }
-
 
 
 

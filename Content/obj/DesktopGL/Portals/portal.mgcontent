@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Games/source/repos/PraktikumProjekt/Content/Portals/portal-Sheet.png</SourceFile>
-  <SourceTime>2024-02-28T12:20:59.4870771+01:00</SourceTime>
-  <DestFile>C:/Users/Games/source/repos/PraktikumProjekt/Content/bin/DesktopGL/Portals/portal-Sheet.xnb</DestFile>
-  <DestTime>2024-03-05T13:34:14.5950178+01:00</DestTime>
+  <SourceFile>C:/Users/Games/source/repos/PraktikumProjekt/Content/Portals/portal.png</SourceFile>
+  <SourceTime>2024-03-06T14:35:33.0341115+01:00</SourceTime>
+  <DestFile>C:/Users/Games/source/repos/PraktikumProjekt/Content/bin/DesktopGL/Portals/portal.xnb</DestFile>
+  <DestTime>2024-03-06T14:36:34.0842672+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

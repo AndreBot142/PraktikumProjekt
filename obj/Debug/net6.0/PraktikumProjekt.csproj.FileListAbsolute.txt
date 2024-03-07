@@ -25,7 +25,6 @@ C:\Users\Games\source\repos\PraktikumProjekt\obj\Debug\net6.0\refint\PraktikumPr
 C:\Users\Games\source\repos\PraktikumProjekt\obj\Debug\net6.0\PraktikumProjekt.pdb
 C:\Users\Games\source\repos\PraktikumProjekt\obj\Debug\net6.0\PraktikumProjekt.genruntimeconfig.cache
 C:\Users\Games\source\repos\PraktikumProjekt\obj\Debug\net6.0\ref\PraktikumProjekt.dll
-C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\Portals\portal-Sheet.xnb
 C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\SkellyHead\skull.xnb
 C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\HealthBar\healthbar_1.xnb
 C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\HealthBar\healthbar_2.xnb
@@ -47,3 +46,8 @@ C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\Background
 C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\Background\PauseMenu.xnb
 C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\Cursors\cursor.xnb
 C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\Pickups\item_01.xnb
+C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\HUD\Hearts\heartDamaged.xnb
+C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\HUD\Hearts\heartEmpty.xnb
+C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\HUD\Hearts\heartFull.xnb
+C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\HUD\Hearts\heartHalf.xnb
+C:\Users\Games\source\repos\PraktikumProjekt\bin\Debug\net6.0\Content\Portals\portal.xnb
